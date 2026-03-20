@@ -1,0 +1,317 @@
+/* --- মৌলিক সেটিংস --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f3f6f9;
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* --- কার্ড ডিজাইন --- */
+.course-card {
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* বাম পাশের রঙিন ভিজ্যুয়াল অংশ */
+.card-visual {
+    width: 35%;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-visual h2 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.card-illustration {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card-illustration img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+/* ডান পাশের কন্টেন্ট অংশ */
+.card-body {
+    width: 65%;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+}
+
+.section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 25px;
+}
+
+.learn-text {
+    color: #5a6772;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* রিসোর্স লিস্ট ডিজাইন */
+.resource-list {
+    list-style: none;
+}
+
+.resource-list li {
+    font-size: 15px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #374151;
+    transition: 0.3s ease;
+}
+
+/* ইমেজের মতো ছোট ত্রিভুজ (Triangle) */
+.resource-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    border-left: 6px solid currentColor;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    opacity: 0.8;
+}
+
+.resource-list li:hover {
+    color: #000;
+    transform: translateX(5px);
+}
+
+/* --- থিম কালার (Theme Colors) --- */
+.yellow-theme .card-visual { background-color: #FFC107; }
+.yellow-theme .section-title { color: #FFC107; }
+.yellow-theme .resource-list li::before { color: #FFC107; }
+
+.purple-theme .card-visual { background-color: #7E57C2; }
+.purple-theme .section-title { color: #7E57C2; }
+.purple-theme .resource-list li::before { color: #7E57C2; }
+
+/* --- Responsiveness (রেসপন্সিভনেস) --- */
+
+/* ট্যাবলেট ভিউ (Tablet View) */
+@media (max-width: 992px) {
+    .course-card {
+        flex-direction: column;
+    }
+    .card-visual, .card-body {
+        width: 100%;
+    }
+    .card-visual {
+        text-align: center;
+        padding: 30px;
+        min-height: auto;
+    }
+    .card-illustration img {
+        max-width: 250px;
+    }
+    .card-body {
+        gap: 30px;
+    }
+}
+
+/* মোবাইল ভিউ (Mobile View) */
+@media (max-width: 768px) {
+    .card-body {
+        grid-template-columns: 1fr; /* এক কলামে চলে আসবে */
+        padding: 30px;
+    }
+    .card-visual h2 {
+        font-size: 22px;
+    }
+    .learn-text {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* মেইন কার্ড স্টাইল */
+.course-card {
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* বাম পাশের রঙিন অংশ */
+.card-visual {
+    width: 35%;
+    padding: 35px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-visual h2 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.illustration {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.illustration img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+/* ডান পাশের টেক্সট কন্টেন্ট */
+.card-body {
+    width: 65%;
+    display: flex;
+    padding: 45px;
+    gap: 40px;
+}
+
+.learn-info { flex: 1.2; }
+.resource-info { flex: 1; }
+
+h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+p {
+    color: #5a6772;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* রিসোর্স লিস্ট এবং আইকন */
+.resource-list { list-style: none; }
+
+.resource-list li {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 12px;
+    padding-left: 18px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.resource-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    border-left: 6px solid currentColor;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.resource-list li:hover {
+    padding-left: 23px;
+    font-weight: 600;
+}
+
+/* থিম কালারসমূহ */
+.orange-theme .card-visual { background-color: #E95D4A; }
+.orange-theme h3 { color: #E95D4A; }
+.orange-theme .resource-list li::before { color: #E95D4A; }
+
+.teal-theme .card-visual { background-color: #00BFA5; }
+.teal-theme h3 { color: #00BFA5; }
+.teal-theme .resource-list li::before { color: #00BFA5; }
+
+/* --- Responsive (ট্যাব ও মোবাইল ভিউ) --- */
+
+@media (max-width: 992px) {
+    .course-card {
+        flex-direction: column;
+    }
+    .card-visual, .card-body {
+        width: 100%;
+    }
+    .card-visual {
+        text-align: center;
+        padding: 30px;
+    }
+    .illustration img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 650px) {
+    .card-body {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+    .card-visual h2 {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+

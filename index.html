@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <!-- navbar-section -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <a href="#">
+                    <i class="fas fa-compass"></i> 
+                    Nav<span>Dn</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu -->
+            <div class="menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                
+                <!-- Dropdown Item (Services) -->
+                <li class="nav-item dropdown" id="services-dropdown">
+                    <a href="#" class="nav-link" id="dropdown-toggle-btn">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-content" id="dropdown-menu">
+                        <li><a href="#"><i class="fas fa-laptop-code"></i> Web Design</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile App</a></li>
+                        <a href="2ndPage/2ndindex.html">
+                            <i class="fas fa-chart-line"></i> SEO Marketing
+                        </a>
+                        <li><a href="#skills"><i class="fas fa-cloud"></i> Skills</a></li>
+                        <li><a href="#experiences"><i class="fa-brands fa-hotjar"></i></i> Experiences</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="https://github.com/sumann335?tab=repositories" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Portfolio
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <i class="fa-solid fa-ribbon"></i> Achievements
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <i class="fas fa-phone-alt"></i> Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#blogs" class="nav-link">
+                        <i class="fas fa-blog"></i> Blog
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users"></i> About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i> Pricing
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container" id="home">
+        <div class="hero-text">
+            <h1>Hi all, I'm Sumon👋</h1>
+            <p>A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks.</p>
+            
+            <div class="social-icons">
+                <a href="https://github.com/sumann335?tab=repositories"><i class="fab fa-github"></i></a>
+                <a href="https:linkedin.com/in/mr-sumon-developer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/sumon6122"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <a href="#contact" class="btn">Contact Me</a>
+            <a href="#" class="btn btn-secondary">See My Resume</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="Hero Illustration">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="container" id="skills">
+        <div class="skills-img">
+            <img src="image.png" alt="Skills Illustration">
+        </div>
+        <div class="skills-text">
+            <h2 class="section-title">What I do</h2>
+            <p class="subtitle">CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK</p>
+            
+            <div class="tech-icons">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <i class="fab fa-js" title="JavaScript"></i>
+                <i class="fab fa-react" title="React"></i>
+                <i class="fab fa-node-js" title="Node.js"></i>
+                <i class="fab fa-python" title="Python"></i>
+                <i class="fab fa-docker" title="Docker"></i>
+                <i class="fab fa-aws" title="AWS"></i>
+            </div>
+
+            <div class="skill-points">
+                <p>⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications</p>
+                <p>⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks</p>
+                <p>⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Proficiency Section -->
+    <section class="container proficiency-section" id="proficiency">
+        <div class="proficiency-text">
+            <h1 class="proficiency-title">Proficiency</h1>
+
+            <div class="skills-wrapper">
+                <!-- Skill 1 -->
+                <div class="skill-item">
+                    <p>Frontend/Design</p>
+                    <div class="progress-bg">
+                        <div class="progress-fill" data-width="90%"></div>
+                    </div>
+                </div>
+                <!-- Skill 2 -->
+                <div class="skill-item">
+                    <p>Backend</p>
+                    <div class="progress-bg">
+                        <div class="progress-fill" data-width="70%"></div>
+                    </div>
+                </div>
+                <!-- Skill 3 -->
+                <div class="skill-item">
+                    <p>Programming</p>
+                    <div class="progress-bg">
+                        <div class="progress-fill" data-width="60%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="proficiency-image">
+            <!-- Exact image placeholder from the screenshot style -->
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="Hero Illustration">
+    </section>
+
+
+
+    <!-- Education Section -->
+    <section class="container education-section" id="education">
+        <h1 class="education-title">Education</h1>
+
+        <div class="education-list">
+            
+            <!-- Education Item 1 -->
+            <div class="education-card">
+                <div class="education-logo">
+                    <!-- Harvard Logo Placeholder -->
+                    <img src="Blue and White Modern News Instagram Post.png">
+                </div>
+                <div class="education-details">
+                    <h2 class="university-name">Harvard University</h2>
+                    <h3 class="degree-name">Master of Science in Computer Science</h3>
+                    <p class="education-duration">September 2017 - April 2019</p>
+                    <p class="education-desc">Participated in the research of XXX and published 3 papers.</p>
+                    <ul class="education-bullets">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education Item 2 -->
+            <div class="education-card">
+                <div class="education-logo">
+                    <!-- Stanford Logo Placeholder -->
+                    <img src="image copy.png">
+                </div>
+                <div class="education-details">
+                    <h2 class="university-name">Stanford University</h2>
+                    <h3 class="degree-name">Bachelor of Science in Computer Science</h3>
+                    <p class="education-duration">September 2013 - April 2017</p>
+                    <p class="education-desc">Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...</p>
+                    <ul class="education-bullets">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Experiences Section -->
+    <section class="container experiences-section" id="experiences">
+        <h1 class="experiences-title">Experiences</h1>
+
+        <div class="experiences-grid">
+            
+            <!-- Experience Card 1 (Facebook) -->
+            <div class="experience-card">
+                <div class="card-header bg-fb-header">
+                    <h2>Facebook</h2>
+                </div>
+                <div class="card-logo bg-fb-logo">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="job-title">Software Engineer</h3>
+                    <p class="job-duration">June 2018 – Present</p>
+                    <p class="job-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul class="job-bullets">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience Card 2 (Quora) -->
+            <div class="experience-card">
+                <div class="card-header bg-quora-header">
+                    <h2>Quora</h2>
+                </div>
+                <div class="card-logo bg-quora-logo">
+                    <i class="fab fa-quora" style="font-weight: bold;"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="job-title">Front-End Developer</h3>
+                    <p class="job-duration">May 2017 – May 2018</p>
+                    <p class="job-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <!-- Experience Card 3 (Airbnb) -->
+            <div class="experience-card">
+                <div class="card-header bg-airbnb-header">
+                    <h2>Airbnb</h2>
+                </div>
+                <div class="card-logo bg-airbnb-logo">
+                    <i class="fab fa-airbnb"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="job-title">Software Engineer Intern</h3>
+                    <p class="job-duration">Jan 2015 – Sep 2015</p>
+                    <p class="job-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Open Source Projects Section -->
+    <section class="container os-projects-section" id="projects">
+        <h1 class="os-projects-title">Open Source Projects</h1>
+
+        <div class="os-projects-grid">
+            
+            <!-- Project Card 1 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> developerFolio</h2>
+                    <p class="project-desc">🚀 Software Developer Portfolio Template that helps you showcase your work and skills as a...</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 2899</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 5588</span>
+                    </div>
+                    <div class="footer-right">27.7 MB</div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> react-blog-github</h2>
+                    <p class="project-desc">🔥 React + Github Issues 👉 Your Personal Blog</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 129</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 787</span>
+                    </div>
+                    <div class="footer-right">34.7 MB</div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> awesome-web-components</h2>
+                    <p class="project-desc">🤖 Awesome web components and snippets for every Front-End Developer</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 31</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 72</span>
+                    </div>
+                    <div class="footer-right">2.1 MB</div>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> Grocery-Items-Detection</h2>
+                    <p class="project-desc">🛒 Grocery Items Detection using Tensorflow.js and IBM Watson. 📷</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 11</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 39</span>
+                    </div>
+                    <div class="footer-right">27 MB</div>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> PWA-Olx-Clone</h2>
+                    <p class="project-desc">Olx Clone Progressive Web App with Offline Feature, Messaging and Add to Favorite</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 18</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 26</span>
+                    </div>
+                    <div class="footer-right">3.3 MB</div>
+                </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="os-project-card">
+                <div class="project-header">
+                    <h2 class="project-name"><i class="fas fa-book repo-icon"></i> Locate-Me</h2>
+                    <p class="project-desc">📍 A React Native live location application to find your loved one's</p>
+                </div>
+                <div class="project-footer">
+                    <div class="footer-left">
+                        <span class="lang"><i class="fas fa-circle lang-dot"></i> JavaScript</span>
+                        <span class="stat"><i class="fas fa-code-branch stat-icon"></i> 6</span>
+                        <span class="stat"><i class="fas fa-star stat-icon"></i> 9</span>
+                    </div>
+                    <div class="footer-right">32.2 MB</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="more-projects-btn-container">
+            <a href="#" class="btn-purple">MORE PROJECTS</a>
+        </div>
+    </section>
+
+    <!-- Big Projects Section -->
+    <section class="container big-projects-section" id="big-projects">
+        <div class="bp-header">
+            <h1 class="bp-main-title">Big Projects</h1>
+            <p class="bp-subtitle">SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH</p>
+        </div>
+
+        <div class="bp-grid">
+            
+            <!-- Big Project Card 1 (Saayahealth) -->
+            <div class="bp-card">
+                <div class="bp-logo">
+                    <!-- Original Saayahealth Logo -->
+                    <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/saayaHealthLogo.webp" alt="Saayahealth Logo">
+                </div>
+                <h3 class="bp-title">Saayahealth</h3>
+                <p class="bp-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <a href="#" class="bp-btn">Visit Website</a>
+            </div>
+
+            <!-- Big Project Card 2 (Next u) -->
+            <div class="bp-card">
+                <div class="bp-logo">
+                    <!-- Original Next u Logo -->
+                    <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/nextuLogo.webp" alt="Next u Logo">
+                </div>
+                <h3 class="bp-title">Nextu</h3>
+                <p class="bp-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <a href="#" class="bp-btn">Visit Website</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="container achievements-section" id="achievements">
+        <div class="ach-header">
+            <h1 class="ach-main-title">Achievements And Certifications 🏆</h1>
+            <p class="ach-subtitle">ACHIEVEMENTS, CERTIFICATIONS, AWARD LETTERS AND SOME COOL STUFF THAT I HAVE DONE !</p>
+        </div>
+
+        <div class="ach-grid">
+            
+            <!-- Achievement Card 1 (Google Code-In) -->
+            <div class="ach-card">
+                <div class="ach-logo">
+                    <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/googleCodeInLogo.webp" alt="Google Code-In Logo">
+                </div>
+                <div class="ach-content">
+                    <h3 class="ach-title">Google Code-In Finalist</h3>
+                    <p class="ach-desc">First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.</p>
+                </div>
+                <div class="ach-buttons">
+                    <a href="#" class="ach-btn">Certification</a>
+                    <a href="#" class="ach-btn">Award Letter</a>
+                    <a href="#" class="ach-btn">Google Code-in Blog</a>
+                </div>
+            </div>
+
+            <!-- Achievement Card 2 (Google Assistant) -->
+            <div class="ach-card">
+                <div class="ach-logo">
+                    <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/googleAssistantLogo.webp" alt="Google Assistant Logo">
+                </div>
+                <div class="ach-content">
+                    <h3 class="ach-title">Google Assistant Action</h3>
+                    <p class="ach-desc">Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.</p>
+                </div>
+                <div class="ach-buttons">
+                    <a href="#" class="ach-btn">View Google Assistant Action</a>
+                </div>
+            </div>
+
+            <!-- Achievement Card 3 (PWA) -->
+            <div class="ach-card">
+                <div class="ach-logo">
+                    <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/pwaLogo.webp" alt="PWA Logo">
+                </div>
+                <div class="ach-content">
+                    <h3 class="ach-title">PWA Web App Developer</h3>
+                    <p class="ach-desc">Completed Certifcation from SMIT for PWA Web App Development</p>
+                </div>
+                <div class="ach-buttons">
+                    <a href="#" class="ach-btn">Certification</a>
+                    <a href="#" class="ach-btn">Final Project</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Blogs Section -->
+    <section class="container blogs-section" id="blogs">
+        <div class="blogs-header">
+            <h1 class="blogs-main-title">Blogs</h1>
+            <p class="blogs-subtitle">WITH LOVE FOR DEVELOPING COOL STUFF, I LOVE TO WRITE AND TEACH OTHERS WHAT I HAVE LEARNT.</p>
+        </div>
+
+        <div class="blogs-grid">
+            
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <!-- Corner Arrow Badge -->
+                <div class="blog-arrow-badge">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <h3 class="blog-title">Win a Google Assistant Tshirt and $200 in Google Cloud Credits</h3>
+                <p class="blog-desc">We are going to create a simple trivia from templates to get started. The Trivia Action template lets you create Actions without writing a single line of code. The template lets you choose a personality and specify the questions, answers, and...</p>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <!-- Corner Arrow Badge -->
+                <div class="blog-arrow-badge">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <h3 class="blog-title">Why REACT Is The Best?</h3>
+                <p class="blog-desc">React is a JavaScript library for building the user interface. It is maintained by Facebook and a community of individual developers and companies. React was created by Jordan Walke, a software engineer at Facebook.Facebook And Instagram Bot...</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Talks Section -->
+    <section class="container talks-section" id="talks">
+        <div class="talks-header">
+            <h1 class="talks-main-title">TALKS</h1>
+            <p class="talks-subtitle">I LOVE TO SHARE MY LIMITED KNOWLEDGE AND GET A SPEAKER BADGE 😅</p>
+        </div>
+
+        <div class="talks-container">
+            
+            <!-- Talk Card -->
+            <div class="talk-card">
+                <!-- Top Purple Diagonal Part -->
+                <div class="talk-card-top">
+                    <h3 class="talk-title">Build Actions For<br>Google Assistant</h3>
+                </div>
+                
+                <!-- Bottom White Part -->
+                <div class="talk-card-bottom">
+                    <p class="talk-info">Codelab at GDG DevFest Karachi 2019</p>
+                    
+                    <div class="talk-buttons">
+                        <a href="#" class="talk-btn">Slides</a>
+                        <a href="#" class="talk-btn">Event</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Preloader / Loading Screen -->
+    <div id="preloader">
+        <div class="dot-spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Podcast Section -->
+    <section class="container podcast-section" id="podcast">
+        <div class="podcast-header">
+            <h1 class="podcast-main-title">Podcast 🎙️</h1>
+            <p class="podcast-subtitle">I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY</p>
+        </div>
+
+        <!-- Custom Podcast Player mimicking Spotify Embed -->
+        <div class="podcast-player-wrapper">
+            <div class="podcast-player">
+                
+                <!-- Podcast Cover Image -->
+                <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/podcast.webp" alt="Codevcast Cover" class="podcast-cover">
+                
+                <!-- Podcast Details (Text & Buttons) -->
+                <div class="podcast-details">
+                    
+                    <!-- Top Row: Title and Spotify Icon -->
+                    <div class="podcast-top-row">
+                        <h3 class="podcast-title">DevStory - "Saad Pasta from Karachi, Pakistan"</h3>
+                        <i class="fab fa-spotify spotify-icon"></i>
+                    </div>
+
+                    <!-- Bottom Row: Play Button and Share -->
+                    <div class="podcast-bottom-row">
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="share-btn">
+                            <i class="fa-solid fa-arrow-up-from-bracket share-icon"></i> Share
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Client Reviews Section (White Background) -->
+    <section class="reviews-section" id="reviews">
+        <div class="reviews-container">
+            
+            <!-- Section Header -->
+            <div class="reviews-header">
+                <h2 class="reviews-heading">Client <span class="highlight-cyan">Reviews</span></h2>
+                <p class="reviews-subtext">What others say about my work and dedication.</p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="reviews-grid">
+                
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="review-text">"Sumon is an exceptional developer. His ability to merge AI with modern web technologies is truly impressive."</p>
+                    
+                    <div class="client-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="client-img">
+                        <div class="client-info">
+                            <h4>Alex Johnson</h4>
+                            <span>CEO, TechFlow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="review-text">"The Neural Architecture project he built for us was top-notch. Highly recommended for complex AI solutions."</p>
+                    
+                    <div class="client-profile">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Miller" class="client-img">
+                        <div class="client-info">
+                            <h4>Sarah Miller</h4>
+                            <span>Product Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="review-text">"Great communication and very fast delivery. The website's performance is lightning fast!"</p>
+                    
+                    <div class="client-profile">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="David Chen" class="client-img">
+                        <div class="client-info">
+                            <h4>David Chen</h4>
+                            <span>Freelance Designer</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    
+
+
+    <!-- Contact Section (Light Mode Custom Design) -->
+    <section class="container contact-section" id="contact">
+        
+        <!-- Left Side: Text and Contact Info -->
+        <div class="contact-left">
+            <h1 class="contact-heading">Let's build the <br><span class="highlight-cyan">extraordinary.</span></h1>
+            <p class="contact-subtext">Available for collaborations on high-impact projects at the intersection of web and AI.</p>
+
+            <div class="contact-info-wrapper">
+                <!-- Email Info -->
+                <div class="contact-info-item">
+                    <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                    <div class="info-text">
+                        <span class="info-label">EMAIL ME</span>
+                        <a href="mailto:infosumon77@gmail.com" class="info-value">infosumon77@gmail.com</a>
+                    </div>
+                </div>
+                
+                <!-- Phone Info -->
+                <div class="contact-info-item">
+                    <div class="icon-box"><i class="fas fa-phone-alt" style="color: #ff4081;"></i></div>
+                    <div class="info-text">
+                        <span class="info-label">CALL ME</span>
+                        <a href="tel:+8801887041612" class="info-value">+8801887041612</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Contact Form Card -->
+        <div class="contact-right">
+            <div class="contact-form-card">
+                <form id="whatsappForm">
+                    <!-- Name & Email Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>FULL NAME</label>
+                            <input type="text" id="fullName" placeholder="your name">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL ADDRESS</label>
+                            <input type="email" id="emailAddress" placeholder="john@exam.com">
+                        </div>
+                    </div>
+                    
+                    <!-- Textarea Row -->
+                    <div class="form-group textarea-group">
+                        <label>PROJECT DETAILS</label>
+                        <textarea id="projectDetails" rows="4" placeholder="Tell me about your vision..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="button" class="btn-submit-cyan" onclick="sendToWhatsApp()">Submit Inquiry via WhatsApp ✈️</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- Link JS File -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2330 @@
+/* CSS Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --text-secondary: #868e96;
+    --primary-color: #55198b;
+    --bg-secondary: #f4f4f4;
+    --card-bg: #ffffff;
+    --border-color: #d3d3d3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header / Navbar --- */
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f1f5f9 0%, #e4eaf1 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #1e293b;
+    color: white;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+
+    position: fixed;   /* 🔥 এটা change */
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Logo Styles */
+.logo a {
+    color: white;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo i {
+    color: #fbbf24;
+    font-size: 2rem;
+}
+
+.logo span {
+    color: #fbbf24;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1.2rem;
+    transition: all 0.25s ease;
+}
+
+/* Navigation Items */
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.8rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.nav-link i {
+    font-size: 1rem;
+    color: #94a3b8;
+    transition: transform 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #334155;
+    color: #fbbf24;
+}
+
+.nav-link:hover i {
+    color: #fbbf24;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #424b5f;
+    min-width: 240px;
+    box-shadow: 0 18px 30px -10px rgba(0,0,0,0.5);
+    border-radius: 14px;
+    padding: 0.5rem 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+    z-index: 100;
+    border: 1px solid #334155;
+}
+
+/* Show dropdown on hover (desktop) */
+.nav-item.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content a {
+    color: #e2e8f0;
+    padding: 0.9rem 1.5rem;
+    display: block;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: background 0.15s, padding-left 0.15s;
+    white-space: nowrap;
+}
+
+.dropdown-content a i {
+    margin-right: 10px;
+    width: 1.4rem;
+    color: #fbbf24;
+}
+
+.dropdown-content a:hover {
+    background-color: #1e293b;
+    padding-left: 2rem;
+    color: white;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid #f1f5f9;
+    color: white;
+    font-size: 1.8rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-toggle:hover {
+    background-color: #334155;
+    border-color: #fbbf24;
+}
+
+/* ========== Mobile Responsive Styles ========== */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1.2rem;
+    }
+
+    /* Show hamburger menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Mobile menu styles */
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        background-color: #0f172a;
+        border-radius: 24px;
+        padding: 0.5rem 0;
+        margin-top: 1rem;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transform: scaleY(0.8);
+        transform-origin: top;
+        transition: max-height 0.4s ease, opacity 0.25s, transform 0.25s, visibility 0.1s 0.25s;
+        border: 1px solid #334155;
+        box-shadow: 0 15px 25px -10px black;
+        gap: 0.2rem;
+    }
+
+    /* Active mobile menu */
+    .nav-menu.active {
+        max-height: 700px;
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(1);
+        transition: max-height 0.5s ease, opacity 0.3s, transform 0.3s, visibility 0s;
+        padding: 1rem 0;
+    }
+
+    /* Mobile nav items */
+    .nav-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-link {
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+        border-radius: 0;
+        white-space: normal;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+
+    /* Mobile dropdown styles */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: #1e293b;
+        border-radius: 12px;
+        margin: 0.2rem 1rem 0.5rem 1rem;
+        padding: 0.3rem 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+        display: none;
+        border: 1px solid #3b4a5f;
+        min-width: auto;
+    }
+
+    /* Open state for mobile dropdown */
+    .dropdown-content.open {
+        display: block;
+    }
+
+    /* Remove hover effect on mobile */
+    .nav-item.dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .dropdown-content a {
+        padding: 0.9rem 1.8rem;
+        white-space: normal;
+    }
+
+    .dropdown-content a:hover {
+        padding-left: 2.2rem;
+    }
+}
+
+/* Optional: Page content styles (if you have main content) */
+.page-content {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 48px;
+    box-shadow: 0 20px 30px -5px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #0f172a;
+}
+
+.page-content h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.page-content p {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.badge {
+    background: #1e293b;
+    color: #fbbf24;
+    padding: 0.3rem 1.2rem;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* --- Reusable Container --- */
+.container {
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    box-shadow: 0 5px 15px rgba(85, 25, 139, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--text-color);
+    margin-left: 10px;
+}
+
+.btn-more {
+    margin-top: 40px;
+}
+
+/* --- Hero Section --- */
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Wave Animation */
+.wave {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.hero-text p {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--text-color);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.hero-img {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-img img {
+    width: 100%;
+    max-width: 550px;
+}
+
+/* --- Skills Section --- */
+.skills-img {
+    flex: 1;
+}
+
+.skills-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 35px;
+    cursor: pointer;
+    
+}
+
+.skills-img img {
+  width: 600px;
+  transition: 0.9s;
+}
+.skills-img img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5),0 0 15px rgba(58, 68, 68, 0.7); /* glow effect */
+    transition: all 0.7s ease-in-out;
+}
+
+.skills-text {
+    flex: 1;
+}
+
+.skills-text p.subtitle {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.tech-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+}
+
+.tech-icons i {
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.tech-icons i:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.skill-points p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+
+
+/* Talks Section  */
+/* =========================================
+   Talks Section (Desktop View)
+   ========================================= */
+.talks-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #fafafa; /* Very light background */
+}
+
+.talks-header {
+    margin-bottom: 60px;
+}
+
+.talks-main-title {
+    font-size: 55px;
+    font-weight: 300; /* Very thin font like the screenshot */
+    color: #1d1d1f;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.talks-subtitle {
+    font-size: 16px;
+    color: #868e96; /* Light gray */
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Container to center the single card */
+.talks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Talk Card */
+.talk-card {
+    width: 100%;
+    max-width: 480px; /* Fixed width to match the image ratio */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.15); /* Soft diffused shadow */
+    overflow: hidden; /* Keeps the top corners rounded despite the purple background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.talk-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   The Diagonal Purple Top (The Magic)
+   ========================================= */
+.talk-card-top {
+    background-color: #55198b; /* Purple color */
+    padding: 40px 30px 60px 30px; /* Extra bottom padding for the slant */
+    /* clip-path creates the diagonal slanted cut */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%); 
+    color: #ffffff;
+}
+
+.talk-title {
+    font-size: 28px;
+    font-weight: 400; /* Thin font inside the card */
+    line-height: 1.3;
+}
+
+/* Bottom White Part */
+.talk-card-bottom {
+    padding: 20px 30px 40px 30px;
+    text-align: center;
+}
+
+.talk-info {
+    font-size: 16px;
+    color: #868e96; /* Gray text */
+    margin-bottom: 30px;
+}
+
+/* Buttons Container */
+.talk-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Space between buttons */
+}
+
+/* Individual Buttons */
+.talk-btn {
+    flex: 1; /* Makes both buttons exactly equal in width */
+    background-color: #55198b;
+    color: #ffffff;
+    padding: 12px 0;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.talk-btn:hover {
+    background-color: #40126b; /* Darker purple on hover */
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .talks-main-title {
+        font-size: 45px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .talks-header {
+        text-align: center; /* Center header text on mobile */
+    }
+
+    .talks-main-title {
+        font-size: 40px;
+    }
+
+    .talks-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .talk-card {
+        margin: 0 15px; /* Margin on the sides for small screens */
+    }
+
+    .talk-title {
+        font-size: 24px;
+    }
+
+    .talk-buttons {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        gap: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   Preloader / Loading Screen
+   ========================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* White background like the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Keeps the loader above everything else */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth fade out */
+}
+
+/* Spinner Container */
+.dot-spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    animation: spin 1s linear infinite; /* Smooth continuous rotation */
+}
+
+/* Individual Dots Wrapper */
+.dot-spinner .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* The actual dot shape */
+.dot-spinner .dot::before {
+    content: '';
+    display: block;
+    width: 8px; /* Size of the dots */
+    height: 8px;
+    border-radius: 50%;
+    background-color: #333333; /* Dark gray color like the image */
+    margin: 0 auto;
+}
+
+/* Positioning and fading the 8 dots in a circle */
+.dot-spinner .dot:nth-child(1) { transform: rotate(0deg); opacity: 1; }
+.dot-spinner .dot:nth-child(2) { transform: rotate(45deg); opacity: 0.8; }
+.dot-spinner .dot:nth-child(3) { transform: rotate(90deg); opacity: 0.6; }
+.dot-spinner .dot:nth-child(4) { transform: rotate(135deg); opacity: 0.4; }
+.dot-spinner .dot:nth-child(5) { transform: rotate(180deg); opacity: 0.2; }
+.dot-spinner .dot:nth-child(6) { transform: rotate(225deg); opacity: 0.1; }
+.dot-spinner .dot:nth-child(7) { transform: rotate(270deg); opacity: 0.05; }
+.dot-spinner .dot:nth-child(8) { transform: rotate(315deg); opacity: 0; }
+
+/* Rotation Animation Keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide Preloader Class (Added by JS) */
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   Podcast Section (Desktop View)
+   ========================================= */
+.podcast-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #ffffff; /* White background */
+}
+
+.podcast-header {
+    margin-bottom: 40px;
+}
+
+.podcast-main-title {
+    font-size: 55px;
+    font-weight: 300; /* Thin font like the screenshot */
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.podcast-subtitle {
+    font-size: 16px;
+    color: #868e96; /* Light gray */
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   Podcast Player Design (Spotify Clone)
+   ========================================= */
+.podcast-player-wrapper {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left like the image */
+}
+
+.podcast-player {
+    display: flex;
+    width: 100%;
+    max-width: 550px; /* Limits width to match the screenshot ratio */
+    background-color: #ffffff;
+}
+
+/* Podcast Cover Image */
+.podcast-cover {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    background-color: #222; /* Fallback dark background */
+}
+
+/* Details Section */
+.podcast-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0 5px 20px; /* Padding only on the right side of image */
+    border-bottom: 2px solid #eaeaea; /* The gray line ONLY under the text area */
+}
+
+/* Top Row (Title & Icon) */
+.podcast-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.podcast-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.4;
+}
+
+.spotify-icon {
+    font-size: 18px;
+    color: #868e96; /* Gray Spotify Icon */
+    margin-top: 3px;
+}
+
+/* Bottom Row (Play & Share) */
+.podcast-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Purple Play Button */
+.play-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #9b8cf3; /* Exactly the light purple from the image */
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.play-btn i {
+    color: #000000; /* Black play icon */
+    font-size: 14px;
+    margin-left: 3px; /* Centers the play triangle visually */
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    background-color: #8474e6;
+}
+
+/* Share Button */
+.share-btn {
+    background: transparent;
+    border: none;
+    color: #555555;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.share-btn:hover {
+    color: #1d1d1f;
+}
+
+.share-icon {
+    font-size: 14px;
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .podcast-main-title {
+        font-size: 45px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .podcast-header {
+        text-align: center; /* Center header text on mobile */
+    }
+
+    .podcast-main-title {
+        font-size: 40px;
+    }
+
+    .podcast-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .podcast-player-wrapper {
+        justify-content: center; /* Center the player on mobile */
+    }
+
+    .podcast-player {
+        max-width: 100%; /* Full width on mobile */
+    }
+
+    .podcast-cover {
+        width: 100px; /* Slightly smaller image on mobile */
+        height: 100px;
+    }
+
+    .podcast-title {
+        font-size: 14px; /* Smaller title on mobile */
+    }
+
+    .play-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .play-btn i {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+/* =========================================
+   Client Reviews Section (White Theme Layout)
+   ========================================= */
+.reviews-section {
+    background-color: #ffffff; /* White background as requested */
+    padding: 100px 5%;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.reviews-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.reviews-heading {
+    font-size: 50px;
+    font-weight: 800;
+    color: #111111; /* Dark text for readability on white */
+    margin-bottom: 15px;
+}
+
+.highlight-cyan {
+    color: #00d2ff; /* Cyan color matching your image */
+}
+
+.reviews-subtext {
+    font-size: 18px;
+    color: #666666; /* Medium gray text */
+}
+
+/* Grid Layout for Cards */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* Individual Review Card */
+.review-card {
+    background-color: #ffffff; /* White card */
+    border: 1px solid #f0f0f0; /* Very light gray border */
+    border-radius: 20px; /* Big rounded corners like the image */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Beautiful soft shadow for depth */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d2ff; /* Border glows cyan on hover */
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.1); /* Subtle cyan shadow on hover */
+}
+
+/* Quote Icon */
+.quote-icon {
+    font-size: 24px;
+    color: #00d2ff; /* Cyan quote mark */
+    margin-bottom: 25px;
+}
+
+/* Review Text */
+.review-text {
+    font-size: 16px;
+    font-style: italic; /* Slanted text like the image */
+    color: #555555; /* Dark gray for readability */
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+/* Client Profile Area */
+.client-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.client-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00d2ff; /* Cyan border around avatar */
+    padding: 2px; /* Small gap between image and border */
+}
+
+.client-info h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111111; /* Dark text */
+    margin-bottom: 3px;
+}
+
+.client-info span {
+    font-size: 14px;
+    color: #888888; /* Light gray designation */
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards side by side on Tablet */
+    }
+    
+    .reviews-heading {
+        font-size: 45px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .reviews-section {
+        padding: 80px 5%;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .reviews-heading {
+        font-size: 38px;
+    }
+
+    .review-card {
+        padding: 30px 20px;
+    }
+
+    .review-text {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+/* =========================================
+   Contact Section (White Background - Custom Layout)
+   ========================================= */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 5%;
+    background-color: #ffffff; /* Requested White Background */
+    gap: 80px;
+}
+
+/* --- Left Side --- */
+.contact-left {
+    flex: 1;
+    max-width: 480px;
+}
+
+.contact-heading {
+    font-size: 65px;
+    font-weight: 800;
+    color: #111111; /* Dark text for white background */
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.highlight-cyan {
+    color: #00d2ff; /* Cyan color exactly like the image */
+}
+
+.contact-subtext {
+    font-size: 18px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+/* Contact Info Items */
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #f7f7f7; /* Light gray circle */
+    border: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #111111;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-size: 11px;
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111111;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-value:hover {
+    color: #00d2ff;
+}
+
+/* --- Right Side (Form Card) --- */
+.contact-right {
+    flex: 1;
+}
+
+.contact-form-card {
+    background-color: #ffffff;
+    border-radius: 24px; /* Very rounded corners like your image */
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); /* Beautiful soft shadow */
+    border: 1px solid #f0f0f0;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.textarea-group {
+    margin-bottom: 35px;
+}
+
+.form-group label {
+    font-size: 11px;
+    color: #888888;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input Fields */
+.form-group input, 
+.form-group textarea {
+    background-color: #f8f9fa; /* Light gray input boxes */
+    border: 1px solid transparent;
+    border-radius: 12px; /* Rounded inputs */
+    padding: 16px 20px;
+    font-size: 15px;
+    color: #333333;
+    font-family: inherit;
+    outline: none;
+    transition: border 0.3s, background-color 0.3s;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Focus effect when clicking on input */
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #00d2ff;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+}
+
+.form-group input::placeholder, 
+.form-group textarea::placeholder {
+    color: #bbbbbb;
+}
+
+/* Submit Button */
+.btn-submit-cyan {
+    width: 100%;
+    background-color: #00d2ff; /* Cyan Button */
+    color: #000000;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px;
+    border: none;
+    border-radius: 12px; /* Match form inner radius */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit-cyan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .contact-section {
+        flex-direction: column;
+        padding: 80px 5%;
+        gap: 50px;
+    }
+    
+    .contact-heading {
+        font-size: 55px;
+    }
+
+    .contact-left, .contact-right {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .contact-form-card {
+        padding: 40px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .contact-heading {
+        font-size: 45px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .contact-form-card {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .btn-submit-cyan {
+        font-size: 16px;
+        padding: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* <!-- Proficiency Section --> */
+/* =========================================
+   Proficiency Section (Desktop View Default)
+   ========================================= */
+.proficiency-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%;
+    gap: 60px;
+}
+
+.proficiency-text {
+    flex: 1;
+}
+
+.proficiency-title {
+    font-size: 55px;
+    font-weight: 400; /* Lighter font weight like the screenshot */
+    margin-bottom: 40px;
+    color: #1d1d1f;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between each progress bar */
+}
+
+.skill-item p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #333333;
+}
+
+/* Background of the Progress Bar */
+.progress-bg {
+    width: 100%;
+    height: 18px;
+    background-color: #f0f0f0; /* Very light gray */
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Filled part of the Progress Bar */
+.progress-fill {
+    height: 100%;
+    width: 0; /* Starts at 0 for JavaScript Animation */
+    background-color: #a28af8; /* Exact Light Purple from your screenshot */
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out; /* Smooth filling animation */
+}
+
+.proficiency-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.proficiency-image img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .proficiency-section {
+        gap: 30px;
+    }
+    .proficiency-title {
+        font-size: 45px;
+        margin-bottom: 30px;
+    }
+    .proficiency-image img {
+        max-width: 380px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .proficiency-section {
+        flex-direction: column; /* Stack vertically on mobile */
+        text-align: left; /* Text remains left-aligned */
+        padding: 50px 5%;
+    }
+    
+    .proficiency-title {
+        font-size: 40px;
+        text-align: center; /* Center the title on mobile */
+    }
+
+    .proficiency-image {
+        justify-content: center;
+        margin-top: 40px;
+        order: -1; /* Puts the image at the top on mobile (optional) */
+    }
+
+    .proficiency-image img {
+        max-width: 100%;
+    }
+}
+
+
+
+ /* <!-- Education Item 1 --> */
+ /* =========================================
+   Education Section (Desktop View)
+   ========================================= */
+.education-section {
+    display: block; /* Overrides the default flex row of container */
+    padding: 80px 5%;
+}
+
+.education-title {
+    font-size: 55px;
+    font-weight: 400; /* Light weight like the screenshot */
+    margin-bottom: 50px;
+    color: #1d1d1f;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-card {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #eaeaea; /* Light gray underline separator */
+}
+
+/* Remove bottom border from the very last item */
+.education-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Round Logo styling with shadow */
+.education-logo {
+    flex-shrink: 0; 
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Exact shadow effect from image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px; /* Space inside the circle */
+}
+
+.education-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.education-details {
+    flex: 1;
+}
+
+/* Text styles matching screenshot */
+.university-name {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 5px;
+}
+
+.degree-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 5px;
+}
+
+.education-duration {
+    font-size: 16px;
+    font-weight: 400;
+    color: #868e96; /* Gray text */
+    margin-bottom: 15px;
+}
+
+.education-desc {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.education-bullets {
+    list-style-type: disc;
+    margin-left: 20px; /* Bullet indent */
+}
+
+.education-bullets li {
+    font-size: 16px;
+    color: #868e96; /* Light gray text for bullets like image */
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .education-title {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+    .university-name {
+        font-size: 24px;
+    }
+    .degree-name {
+        font-size: 17px;
+    }
+    .education-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .education-title {
+        font-size: 40px;
+        text-align: center; /* Center main title */
+    }
+
+    .education-card {
+        flex-direction: column; /* Move logo top, text bottom */
+        align-items: flex-start; /* Keep text left-aligned for readability */
+        gap: 20px;
+    }
+
+    .education-logo {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Experiences Section  */
+/* =========================================
+   Experiences Section (Desktop View)
+   ========================================= */
+.experiences-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #fafafa; /* Very light background to make white cards pop */
+}
+
+.experiences-title {
+    font-size: 55px;
+    font-weight: 400; /* Thin font like the screenshot */
+    margin-bottom: 50px;
+    color: #1d1d1f;
+}
+
+/* Grid Layout for Cards */
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.experience-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    border: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Keeps the top corners rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header (Colored Top Part) */
+.card-header {
+    padding: 25px 20px 50px 20px;
+    text-align: center;
+}
+
+.card-header h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Specific Header Colors based on Image */
+.bg-fb-header { background-color: #165cac; }
+.bg-quora-header { background-color: #69180d; }
+.bg-airbnb-header { background-color: #b14549; }
+
+/* Overlapping Circle Logo */
+.card-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: -45px auto 0 auto; /* Pulls the circle up into the header */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); /* Drop shadow around logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+/* Specific Logo Background Colors */
+.bg-fb-logo { background-color: #1877f2; }
+.bg-quora-logo { background-color: #b92b27; }
+.bg-airbnb-logo { background-color: #ff5a5f; }
+
+/* Card Body (Text Section) */
+.card-body {
+    padding: 20px 30px 40px 30px;
+    text-align: center;
+}
+
+.job-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 5px;
+}
+
+.job-duration {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.job-desc {
+    font-size: 15px;
+    color: #868e96; /* Light gray text like the screenshot */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Bullet Points in the Facebook Card */
+.job-bullets {
+    text-align: left;
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.job-bullets li {
+    font-size: 15px;
+    color: #868e96;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .experiences-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on Tablet */
+    }
+    
+    .experiences-title {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .experiences-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .experiences-title {
+        font-size: 40px;
+        text-align: center; /* Centered title on mobile */
+    }
+
+    .card-body {
+        padding: 20px 20px 30px 20px; /* Slightly less padding on small screens */
+    }
+}
+
+/* Open Source Projects Section */
+/* =========================================
+   Open Source Projects Section (Desktop View)
+   ========================================= */
+.os-projects-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #ffffff; /* White background */
+}
+
+.os-projects-title {
+    font-size: 55px;
+    font-weight: 400; /* Thin font like the screenshot */
+    margin-bottom: 50px;
+    color: #1d1d1f;
+}
+
+/* Grid Layout for Cards */
+.os-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.os-project-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2); /* Exact soft shadow from the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes footer to the bottom */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent; /* Prevents jumping on hover */
+}
+
+.os-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Card Header */
+.project-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.repo-icon {
+    font-size: 20px;
+    color: #333333; /* Dark gray book icon */
+}
+
+.project-desc {
+    font-size: 16px;
+    color: #868e96; /* Light gray text */
+    line-height: 1.6;
+    margin-bottom: 40px; /* Space before footer */
+}
+
+/* Card Footer */
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #868e96; /* Gray text for footer */
+    font-weight: 500;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 18px; /* Space between language, fork, star */
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-dot {
+    color: #f1e05a; /* Yellow color for JavaScript */
+    font-size: 10px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-icon {
+    color: #868e96; /* Gray icon color */
+}
+
+/* More Projects Button */
+.more-projects-btn-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-purple {
+    display: inline-block;
+    background-color: #55198b; /* Primary purple color */
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(85, 25, 139, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.btn-purple:hover {
+    box-shadow: 0 8px 20px rgba(85, 25, 139, 0.5);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .os-projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on Tablet */
+    }
+    
+    .os-projects-title {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .os-projects-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .os-projects-title {
+        font-size: 40px;
+        text-align: center; /* Centered title on mobile */
+    }
+}
+
+/* Big Projects Section */
+/* =========================================
+   Big Projects Section (Desktop View)
+   ========================================= */
+.big-projects-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #ffffff;
+}
+
+.bp-header {
+    margin-bottom: 50px;
+}
+
+.bp-main-title {
+    font-size: 55px;
+    font-weight: 400; /* Thin font like the screenshot */
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.bp-subtitle {
+    font-size: 16px;
+    color: #868e96; /* Light gray */
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Grid Layout for Cards */
+.bp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards side by side */
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.bp-card {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea; /* Very light gray border like the image */
+    border-radius: 8px;
+    padding: 60px 40px; /* Lots of padding for whitespace */
+    text-align: center;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
+}
+
+/* Logo inside the card */
+.bp-logo {
+    height: 100px; /* Fixed height to keep logos proportional */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.bp-logo img {
+    max-height: 100%;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+/* Card Text */
+.bp-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.bp-desc {
+    font-size: 15px;
+    color: #868e96; /* Gray description text */
+    margin-bottom: 25px;
+}
+
+/* Visit Website Button */
+.bp-btn {
+    display: inline-block;
+    background-color: #55198b; /* Purple color matching screenshot */
+    color: #ffffff;
+    padding: 8px 16px; /* Smaller padding than hero buttons */
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.bp-btn:hover {
+    background-color: #40126b; /* Darker purple on hover */
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .bp-main-title {
+        font-size: 45px;
+    }
+    .bp-card {
+        padding: 40px 20px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .bp-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .bp-header {
+        text-align: center; /* Center header text on mobile */
+    }
+
+    .bp-main-title {
+        font-size: 40px;
+    }
+
+    .bp-subtitle {
+        font-size: 14px;
+    }
+
+    .bp-card {
+        padding: 50px 20px;
+    }
+}
+
+/* Achievements Section */
+/* =========================================
+   Achievements Section (Desktop View)
+   ========================================= */
+.achievements-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #fafafa; /* Very light background like experiences */
+}
+
+.ach-header {
+    margin-bottom: 50px;
+}
+
+.ach-main-title {
+    font-size: 55px;
+    font-weight: 400; /* Thin font like the screenshot */
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.ach-subtitle {
+    font-size: 16px;
+    color: #868e96; /* Light gray */
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Grid Layout for Cards */
+.ach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards side by side */
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.ach-card {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea; /* Very light gray border like the image */
+    border-radius: 8px;
+    padding: 50px 30px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes buttons to the bottom */
+    text-align: center;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ach-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
+}
+
+/* Logo inside the card */
+.ach-logo {
+    height: 180px; /* Fixed height to keep logos proportional and large */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.ach-logo img {
+    max-height: 100%;
+    max-width: 80%; /* Keeps logo from touching the edges */
+    object-fit: contain;
+}
+
+/* Card Text */
+.ach-content {
+    flex-grow: 1; /* Pushes buttons to the bottom uniformly */
+    margin-bottom: 25px;
+}
+
+.ach-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.ach-desc {
+    font-size: 15px;
+    color: #868e96; /* Gray description text */
+    line-height: 1.6;
+}
+
+/* Multiple Small Buttons at the bottom */
+.ach-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to next line if too many */
+    justify-content: center;
+    gap: 10px;
+}
+
+.ach-btn {
+    display: inline-block;
+    background-color: #55198b; /* Purple color matching screenshot */
+    color: #ffffff;
+    padding: 6px 14px; /* Small padding */
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.ach-btn:hover {
+    background-color: #40126b; /* Darker purple on hover */
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .ach-main-title {
+        font-size: 45px;
+    }
+    
+    .ach-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards side by side on Tablet */
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .ach-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .ach-header {
+        text-align: center; /* Center header text on mobile */
+    }
+
+    .ach-main-title {
+        font-size: 40px;
+    }
+
+    .ach-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .ach-card {
+        padding: 40px 20px;
+    }
+
+    .ach-logo {
+        height: 150px; /* Slightly smaller logo on mobile */
+    }
+}
+
+ /* Blogs Section */
+ /* =========================================
+   Blogs Section (Desktop View)
+   ========================================= */
+.blogs-section {
+    display: block;
+    padding: 80px 5%;
+    background-color: #ffffff; /* White background */
+}
+
+.blogs-header {
+    margin-bottom: 50px;
+}
+
+.blogs-main-title {
+    font-size: 55px;
+    font-weight: 400; /* Thin font like the screenshot */
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.blogs-subtitle {
+    font-size: 16px;
+    color: #868e96; /* Light gray */
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Grid Layout for Blog Cards */
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards side by side */
+    gap: 30px;
+}
+
+/* Individual Blog Card Styling */
+.blog-card {
+    background-color: #ffffff;
+    border-radius: 8px; /* Rounded corners for the card */
+    padding: 40px 40px 40px 30px; /* Padding adjusted */
+    position: relative; /* Crucial for absolute positioning of the badge */
+    overflow: hidden; /* Ensures the badge doesn't break out awkwardly */
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* =========================================
+   The Top-Right Corner Arrow Badge
+   ========================================= */
+.blog-arrow-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #55198b; /* Purple color */
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start; /* Align arrow towards top */
+    justify-content: flex-end; /* Align arrow towards right */
+    padding: 10px 12px; /* Position the arrow nicely */
+    border-bottom-left-radius: 40px; /* This makes the leaf/curve shape */
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.blog-card:hover .blog-arrow-badge {
+    background-color: #40126b; /* Darkens the badge when hovering the card */
+}
+
+/* Blog Card Text Content */
+.blog-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    width: 90%; /* Prevents text from overlapping with the corner badge */
+}
+
+.blog-desc {
+    font-size: 16px;
+    color: #868e96; /* Gray text */
+    line-height: 1.6;
+}
+
+/* =========================================
+   Tablet View (Tab Responsive)
+   ========================================= */
+@media (max-width: 992px) {
+    .blogs-main-title {
+        font-size: 45px;
+    }
+    
+    .blog-card {
+        padding: 30px 30px 30px 20px;
+    }
+
+    .blog-title {
+        font-size: 22px;
+    }
+}
+
+/* =========================================
+   Mobile View (Mobile Responsive)
+   ========================================= */
+@media (max-width: 768px) {
+    .blogs-grid {
+        grid-template-columns: 1fr; /* 1 card per row on Mobile */
+    }
+
+    .blogs-header {
+        text-align: center; /* Center header text on mobile */
+    }
+
+    .blogs-main-title {
+        font-size: 40px;
+    }
+
+    .blogs-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .blog-card {
+        padding: 30px 20px;
+    }
+
+    .blog-title {
+        font-size: 20px;
+        width: 85%; /* Adjust width for mobile */
+    }
+}

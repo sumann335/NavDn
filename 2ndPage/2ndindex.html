@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Marketing Hub - Clone</title>
+    <!-- Using Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES (Existing + New) --- */
+        :root {
+            --primary-teal: #00C29A;
+            --primary-teal-hover: #00a885;
+            --primary-purple: #A855F7;
+            --primary-purple-hover: #9333EA;
+            --card-teal: #31C7D3;
+            --card-blue: #4D61FC;
+            --text-dark: #111827;
+            --text-light: #6B7280;
+            --bg-color: #ffffff;
+            --font-family: 'Inter', sans-serif;
+        }
+
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: #f8fafc; /* Slightly gray background for contrast */
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-teal { background-color: var(--primary-teal); color: white; }
+        .btn-teal:hover { background-color: var(--primary-teal-hover); transform: translateY(-2px); }
+        .btn-purple { background-color: var(--primary-purple); color: white; padding: 14px 40px; }
+        .btn-purple:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); }
+
+        /* --- HEADER / NAVBAR --- */
+        header {
+            padding: 20px 0;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary-teal); display: flex; align-items: center; }
+        .logo span { display: inline-block; width: 18px; height: 18px; border: 3px dashed var(--primary-teal); border-radius: 50%; margin-left: 5px; }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: #374151; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 80px 0; background: white; }
+        .hero-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .hero-content { flex: 1; max-width: 500px; }
+        .hero-content h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero-content p { font-size: 18px; color: var(--text-light); margin-bottom: 35px; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
+        .hero-image img { width: 50%; height: auto; }
+
+        /* --- NEW COURSE SECTIONS (IMAGE CLONE) --- */
+        .course-hub { padding: 60px 0; }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Left Side (Visual) */
+        .card-visual {
+            width: 35%;
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-visual h2 { font-size: 28px; font-weight: 500; line-height: 1.2; }
+        .card-illustration { margin-top: 30px; text-align: center; }
+        .card-illustration img { max-width: 100%; height: auto; }
+
+        /* Right Side (Content) */
+        .card-body {
+            width: 65%;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .learn-text { color: var(--text-light); line-height: 1.7; font-size: 16px; }
+
+        /* Resources List */
+        .resource-list { list-style: none; }
+        .resource-list li {
+            font-size: 15px;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            cursor: pointer;
+            color: #374151;
+            transition: 0.2s;
+        }
+
+        .resource-list li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+            top: 4px;
+            opacity: 0.7;
+        }
+
+        .resource-list li:hover { color: #000; font-weight: 500; transform: translateX(5px); }
+
+        /* Theme Styling */
+        .teal-theme .card-visual { background-color: var(--card-teal); }
+        .teal-theme .section-title { color: var(--card-teal); }
+        .teal-theme .resource-list li::before { color: var(--card-teal); }
+
+        .blue-theme .card-visual { background-color: var(--card-blue); }
+        .blue-theme .section-title { color: var(--card-blue); }
+        .blue-theme .resource-list li::before { color: var(--card-blue); }
+
+        /* --- RESPONSIVE DESIGN --- */
+
+        /* Tablet View */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .course-card { flex-direction: column; }
+            .card-visual, .card-body { width: 100%; }
+            .card-visual { text-align: center; padding: 30px; }
+            .card-illustration img { max-width: 200px; }
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-content { max-width: 100%; }
+            .card-body { grid-template-columns: 1fr; padding: 30px; gap: 30px; }
+            .hero-content h1 { font-size: 32px; }
+        }
+
+        /* Mobile Nav Sidebar */
+        .mobile-nav {
+            position: fixed;
+            top: 75px;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            gap: 20px;
+            transition: 0.3s;
+            z-index: 99;
+        }
+        .mobile-nav.active { left: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">BACKLINK<span></span></a>
+            <nav class="nav-links">
+                <a href="#">Articles</a>
+                <a href="#">Tools</a>
+                <a href="#">Templates</a>
+                <a href="#">About</a>
+                <a href="#">Newsletter</a>
+            </nav>
+            <div class="nav-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <a href="#" class="btn btn-teal">Check My Site's SEO</a>
+                <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#">Articles</a><a href="#">Tools</a><a href="#">Templates</a><a href="#">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>SEO Marketing Hub 2.0</h1>
+                <p>Whether you're brand new to SEO, or want to learn advanced strategies, this is your hub for SEO knowledge.</p>
+                <a href="#" class="btn btn-purple">Start Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="Screenshot (6).png" alt="">
+                <!-- <img src="https://cdni.iconscout.com/illustration/premium/thumb/seo-marketing-4351980-3622081.png" alt="SEO Illustration"> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- New Course Cards Section (Section Tag Based) -->
+    <section class="course-hub">
+        <div class="container">
+            
+            <!-- Card 1: SEO Fundamentals -->
+            <section class="course-card teal-theme">
+                <div class="card-visual">
+                    <!-- <h2>SEO Fundamentals</h2> -->
+                    <div class="card-illustration">
+                        <img src="Screenshot.png" alt="SEO Icon">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="learn-col">
+                        <h3 class="section-title">What You'll Learn</h3>
+                        <p class="learn-text">Learn the basics of SEO all in one place, including crawling, indexing, search engine ranking signals, choosing keywords, content freshness, anchor text, and more.</p>
+                    </div>
+                    <div class="resource-col">
+                        <h3 class="section-title">8 Resources</h3>
+                        <ul class="resource-list">
+                            <li>What Is SEO?</li>
+                            <li>Search Engine Positioning</li>
+                            <li>SEO vs. SEM</li>
+                            <li>Search Engine Ranking Factors</li>
+                            <li>SEO Best Practices</li>
+                            <li>SEO Metrics</li>
+                            <li>SEO Friendly Web Design</li>
+                            <li>What Are SERPs?</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card 2: Keyword Research Strategies -->
+            <section class="course-card blue-theme">
+                <div class="card-visual">
+                    <!-- <h2>Keyword Research Strategies</h2> -->
+                    <div class="card-illustration">
+                        <img src="Screenshot (1).png" alt="Keyword Icon">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="learn-col">
+                        <h3 class="section-title">What You'll Learn</h3>
+                        <p class="learn-text">Learn how to find keywords that your audience searches for in Google, YouTube and other popular search engines.</p>
+                    </div>
+                    <div class="resource-col">
+                        <h3 class="section-title">6 Resources</h3>
+                        <ul class="resource-list">
+                            <li>SEO Keywords</li>
+                            <li>Keyword Difficulty</li>
+                            <li>6-Step Essential Guide</li>
+                            <li>Long Tail Keywords</li>
+                            <li>Search Terms</li>
+                            <li>Irrelevant Keywords</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <script>
+        // Existing Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            menuBtn.innerHTML = mobileNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Interactive Resource List
+        document.querySelectorAll('.resource-list li').forEach(item => {
+            item.addEventListener('click', function() {
+                alert("Navigating to: " + this.innerText);
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+            <!-- সেকশন ১: Content Optimization Strategies -->
+        <section class="course-card yellow-theme">
+            <div class="card-visual">
+                <h2>Content Optimization Strategies</h2>
+                <div class="card-illustration">
+                    <!-- এখানে আপনার ইলাস্ট্রেশন ইমেজ দিন -->
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/content-optimization-illustration-download-in-svg-png-gif-file-formats--marketing-strategy-digital-seo-pack-business-illustrations-4713589.png" alt="Content Optimization">
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="learn-col">
+                    <h3 class="section-title">WHAT YOU'LL LEARN</h3>
+                    <p class="learn-text">
+                        Learn how to optimize your content like the pros. See exactly how to optimize your site's on-page SEO, get featured in the coveted Featured Snippet spot, and tap into Semantic SEO.
+                    </p>
+                </div>
+                <div class="resource-col">
+                    <h3 class="section-title">9 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>SEO Writing</li>
+                        <li>Meta Descriptions</li>
+                        <li>SEO Friendly URLs</li>
+                        <li>Internal Linking</li>
+                        <li>Semantic SEO</li>
+                        <li>Rich Snippets</li>
+                        <li>LSI Keywords</li>
+                        <li>Featured Snippets</li>
+                        <li>What Is a URL Slug?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ২: Technical SEO -->
+        <section class="course-card purple-theme">
+            <div class="card-visual">
+                <h2>Technical SEO</h2>
+                <div class="card-illustration">
+                    <!-- এখানে আপনার ইলাস্ট্রেশন ইমেজ দিন -->
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/technical-seo-illustration-download-in-svg-png-gif-file-formats--website-development-digital-marketing-search-engine-optimization-coding-pack-business-illustrations-5345638.png" alt="Technical SEO">
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="learn-col">
+                    <h3 class="section-title">WHAT YOU'LL LEARN</h3>
+                    <p class="learn-text">
+                        Learn tips and strategies to ensure that your website's technical SEO is in tip-top shape, including techniques for improving your site's loading speed, website architecture, and crawl budget.
+                    </p>
+                </div>
+                <div class="resource-col">
+                    <h3 class="section-title">6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Website Architecture</li>
+                        <li>Sitemaps</li>
+                        <li>Crawl Budget</li>
+                        <li>Page Speed and SEO</li>
+                        <li>Robots.txt</li>
+                        <li>Duplicate Content</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+         <!-- সেকশন ১: Link Building -->
+        <section class="course-card orange-theme">
+            <div class="card-visual">
+                <h2>Link Building for SEO</h2>
+                <div class="illustration">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/link-building-illustration-download-in-svg-png-gif-file-formats--seo-backlinks-digital-marketing-optimization-pack-business-illustrations-4819779.png" alt="Link Building">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="learn-info">
+                    <h3>WHAT YOU'LL LEARN</h3>
+                    <p>Learn specific strategies that you can use to build links to your site, including Broken Link Building, Link Bait, Evergreen Content and data-driven industry studies.</p>
+                </div>
+                <div class="resource-info">
+                    <h3>6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Backlinks</li>
+                        <li>Broken Link Building</li>
+                        <li>Link Bait</li>
+                        <li>Resource Page Link Building</li>
+                        <li>Original Research and Data</li>
+                        <li>What Is a Spam Link?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ২: User Experience Signals -->
+        <section class="course-card teal-theme">
+            <div class="card-visual">
+                <h2>User Experience Signals</h2>
+                <div class="illustration">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-experience-illustration-download-in-svg-png-gif-file-formats--interface-ux-business-optimization-strategy-pack-illustrations-5077065.png" alt="UX Signals">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="learn-info">
+                    <h3>WHAT YOU'LL LEARN</h3>
+                    <p>Learn how to optimize your site's pages around "User Experience Signals", like CTR, Dwell Time, searcher intent, and more.</p>
+                </div>
+                <div class="resource-info">
+                    <h3>6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Dwell Time</li>
+                        <li>Bounce Rate</li>
+                        <li>Pogo Sticking</li>
+                        <li>Organic CTR</li>
+                        <li>Search Intent</li>
+                        <li>Core Web Vitals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- সেকশন 3: User Experience Signals -->
+        <section class="course-card teal-theme">
+            <div class="card-visual">
+                <h2>User Experience Signals</h2>
+                <div class="illustration">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-experience-illustration-download-in-svg-png-gif-file-formats--interface-ux-business-optimization-strategy-pack-illustrations-5077065.png" alt="UX Signals">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="learn-info">
+                    <h3>WHAT YOU'LL LEARN</h3>
+                    <p>Learn how to optimize your site's pages around "User Experience Signals", like CTR, Dwell Time, searcher intent, and more.</p>
+                </div>
+                <div class="resource-info">
+                    <h3>6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Dwell Time</li>
+                        <li>Bounce Rate</li>
+                        <li>Pogo Sticking</li>
+                        <li>Organic CTR</li>
+                        <li>Search Intent</li>
+                        <li>Core Web Vitals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- সেকশন 4: User Experience Signals -->
+        <section class="course-card teal-theme">
+            <div class="card-visual">
+                <h2>User Experience Signals</h2>
+                <div class="illustration">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-experience-illustration-download-in-svg-png-gif-file-formats--interface-ux-business-optimization-strategy-pack-illustrations-5077065.png" alt="UX Signals">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="learn-info">
+                    <h3>WHAT YOU'LL LEARN</h3>
+                    <p>Learn how to optimize your site's pages around "User Experience Signals", like CTR, Dwell Time, searcher intent, and more.</p>
+                </div>
+                <div class="resource-info">
+                    <h3>6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Dwell Time</li>
+                        <li>Bounce Rate</li>
+                        <li>Pogo Sticking</li>
+                        <li>Organic CTR</li>
+                        <li>Search Intent</li>
+                        <li>Core Web Vitals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- সেকশন 4: User Experience Signals -->
+        <section class="course-card teal-theme">
+            <div class="card-visual">
+                <h2>User Experience Signals</h2>
+                <div class="illustration">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-experience-illustration-download-in-svg-png-gif-file-formats--interface-ux-business-optimization-strategy-pack-illustrations-5077065.png" alt="UX Signals">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="learn-info">
+                    <h3>WHAT YOU'LL LEARN</h3>
+                    <p>Learn how to optimize your site's pages around "User Experience Signals", like CTR, Dwell Time, searcher intent, and more.</p>
+                </div>
+                <div class="resource-info">
+                    <h3>6 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li>Dwell Time</li>
+                        <li>Bounce Rate</li>
+                        <li>Pogo Sticking</li>
+                        <li>Organic CTR</li>
+                        <li>Search Intent</li>
+                        <li>Core Web Vitals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+</body>
+</html>
