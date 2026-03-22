@@ -2523,3 +2523,27 @@ h1, h2 {
         width: 85%; /* Adjust width for mobile */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* main-footer */
+.main-footer {
+  background: #0f172a;
+  color: var(--light);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  color: rgb(255, 255, 255);
+  font: bold;
+  box-shadow: var(--shadow);
+  margin-top: auto;
+}
