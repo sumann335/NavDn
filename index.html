@@ -22,7 +22,7 @@
         <div class="navbar-container">
             <!-- Logo Section -->
             <div class="logo">
-                <a href="#">
+                 <a href="/">
                     <i class="fas fa-compass"></i> 
                     Nav<span>Dn</span>
                 </a>
@@ -65,7 +65,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">
+                    <a href="#achievements" class="nav-link">
                         <i class="fa-solid fa-ribbon"></i> Achievements
                     </a>
                 </li>
@@ -597,42 +597,67 @@
 
 
     <!-- Podcast Section -->
-    <section class="container podcast-section" id="podcast">
-        <div class="podcast-header">
-            <h1 class="podcast-main-title">Podcast 🎙️</h1>
-            <p class="podcast-subtitle">I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY</p>
-        </div>
+<section class="container podcast-section" id="podcast">
+    <div class="podcast-header">
+        <h1 class="podcast-main-title">Podcast 🎙️</h1>
+        <p class="podcast-subtitle">I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY</p>
+    </div>
 
-        <!-- Custom Podcast Player mimicking Spotify Embed -->
-        <div class="podcast-player-wrapper">
-            <div class="podcast-player">
-                
-                <!-- Podcast Cover Image -->
-                <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/podcast.webp" alt="Codevcast Cover" class="podcast-cover">
-                
-                <!-- Podcast Details (Text & Buttons) -->
-                <div class="podcast-details">
-                    
-                    <!-- Top Row: Title and Spotify Icon -->
-                    <div class="podcast-top-row">
-                        <h3 class="podcast-title">DevStory - "Saad Pasta from Karachi, Pakistan"</h3>
-                        <i class="fab fa-spotify spotify-icon"></i>
-                    </div>
+    <!-- Custom Podcast Player -->
+    <div class="podcast-player-wrapper">
+        <div class="podcast-player">
+            
+            <img src="image.png" alt="Codevcast Cover" class="podcast-cover">
+            
+            <div class="podcast-details">
+                <div class="podcast-top-row">
+                    <h3 class="podcast-title">DevStory - "Saad Pasta from Karachi, Pakistan"</h3>
+                    <i class="fab fa-spotify spotify-icon"></i>
+                </div>
 
-                    <!-- Bottom Row: Play Button and Share -->
-                    <div class="podcast-bottom-row">
-                        <button class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <button class="share-btn">
-                            <i class="fa-solid fa-arrow-up-from-bracket share-icon"></i> Share
-                        </button>
-                    </div>
-
+                <div class="podcast-bottom-row">
+                    <!-- আইডি যোগ করা হয়েছে: play-btn-main -->
+                    <button class="play-btn" id="play-btn-main">
+                        <i class="fas fa-play" id="play-icon"></i>
+                    </button>
+                    <button class="share-btn">
+                        <i class="fa-solid fa-arrow-up-from-bracket share-icon"></i> Share
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- অডিও ট্যাগ -->
+    <audio id="podcast-audio" src="download (1).wav"></audio>
+</section>
+
+<!--অডিও JavaScript অংশ -->
+<script>
+    const playBtn = document.getElementById('play-btn-main');
+    const audio = document.getElementById('podcast-audio');
+    const playIcon = document.getElementById('play-icon');
+
+    playBtn.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            // আইকন পরিবর্তন: Play থেকে Pause
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+        } else {
+            audio.pause();
+            // আইকন পরিবর্তন: Pause থেকে Play
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+        }
+    });
+
+    // অডিও শেষ হয়ে গেলে আবার প্লে আইকন ফিরিয়ে আনা
+    audio.onended = function() {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    };
+</script>
 
 
 
@@ -763,6 +788,15 @@
         </div>
 
     </section>
+
+
+
+    
+
+
+
+
+
 
 
   

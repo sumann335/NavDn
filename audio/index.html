@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast UI Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Podcast <span class="mic-icon">🎙️</span></h1>
+            <p class="subtitle">I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY</p>
+        </div>
+
+        <!-- Podcast Player Row -->
+        <div class="podcast-player">
+            <!-- Left Side: Logo Box -->
+            <div class="logo-box">
+                <div class="flag">🇵🇰</div>
+                <div class="logo-content">
+                    <i class="fas fa-microphone-lines"></i>
+                    <span>CODEVCAST</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Player Info -->
+            <div class="player-info">
+                <div class="top-row">
+                    <h2 class="podcast-title">DevStory - "Saad Pasta from Karachi, Pakistan"</h2>
+                    <i class="fab fa-spotify spotify-icon"></i>
+                </div>
+
+                <div class="controls">
+                    <button class="play-btn" id="playBtn">
+                        <i class="fas fa-play" id="icon"></i>
+                    </button>
+                    <!-- Real Audio File Path -->
+                    <audio id="myAudio">
+                        <source src="your-audio-file.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="footer-row">
+                    <div class="share-box">
+                        <i class="fas fa-upload"></i>
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-border"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

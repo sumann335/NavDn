@@ -944,6 +944,10 @@ h1, h2 {
     letter-spacing: 0.5px;
 }
 
+
+
+
+
 /* =========================================
    Podcast Player Design (Spotify Clone)
    ========================================= */
@@ -956,7 +960,8 @@ h1, h2 {
     display: flex;
     width: 100%;
     max-width: 550px; /* Limits width to match the screenshot ratio */
-    background-color: #ffffff;
+    background-color: #82a33b;
+    border-radius: 10px;
 }
 
 /* Podcast Cover Image */
@@ -964,6 +969,7 @@ h1, h2 {
     width: 120px;
     height: 120px;
     object-fit: cover;
+    border-radius: 10px;
     background-color: #222; /* Fallback dark background */
 }
 
@@ -994,7 +1000,7 @@ h1, h2 {
 
 .spotify-icon {
     font-size: 18px;
-    color: #868e96; /* Gray Spotify Icon */
+    color: #000000; /* Gray Spotify Icon */
     margin-top: 3px;
 }
 
@@ -1010,7 +1016,7 @@ h1, h2 {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background-color: #9b8cf3; /* Exactly the light purple from the image */
+    background-color: #107ee6; /* Exactly the light purple from the image */
     border: none;
     display: flex;
     justify-content: center;
@@ -2523,9 +2529,6 @@ h1, h2 {
         width: 85%; /* Adjust width for mobile */
     }
 }
-
-
-
 
 
 
