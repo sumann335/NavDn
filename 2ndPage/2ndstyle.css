@@ -1,317 +1,401 @@
-/* --- মৌলিক সেটিংস --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #f3f6f9;
-    padding: 50px 20px;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-}
-
-/* --- কার্ড ডিজাইন --- */
-.course-card {
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-
-/* বাম পাশের রঙিন ভিজ্যুয়াল অংশ */
-.card-visual {
-    width: 35%;
-    padding: 40px;
-    color: white;
+/* Background Grid Pattern */
+.hero-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #e0f0ff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.5) 50%, transparent 50%),
+        linear-gradient(rgba(255,255,255,0.5) 50%, transparent 50%);
+    background-size: 200px 200px; /* Adjust grid size */
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* Content Layout */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
     justify-content: space-between;
-}
-
-.card-visual h2 {
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.card-illustration {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.card-illustration img {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-}
-
-/* ডান পাশের কন্টেন্ট অংশ */
-.card-body {
-    width: 65%;
-    padding: 50px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
     gap: 40px;
 }
 
-.section-title {
-    font-size: 13px;
-    font-weight: 700;
+/* Text Section */
+.text-section h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 0.9;
+    color: #222;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 25px;
 }
 
-.learn-text {
-    color: #5a6772;
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-/* রিসোর্স লিস্ট ডিজাইন */
-.resource-list {
-    list-style: none;
-}
-
-.resource-list li {
-    font-size: 15px;
-    margin-bottom: 12px;
-    padding-left: 20px;
+/* Illustration Section */
+.illustration-section {
     position: relative;
-    cursor: pointer;
-    color: #374151;
-    transition: 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
 }
 
-/* ইমেজের মতো ছোট ত্রিভুজ (Triangle) */
-.resource-list li::before {
-    content: "";
+.illustration-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Simple CSS Illustration Elements */
+.person {
     position: absolute;
-    left: 0;
-    top: 6px;
-    border-left: 6px solid currentColor;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    opacity: 0.8;
+    bottom: 10%;
+    right: 10%;
+    width: 150px;
+    height: 200px;
 }
 
-.resource-list li:hover {
-    color: #000;
-    transform: translateX(5px);
+.person .head {
+    width: 50px;
+    height: 60px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 40% 40% 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    z-index: 2;
 }
 
-/* --- থিম কালার (Theme Colors) --- */
-.yellow-theme .card-visual { background-color: #FFC107; }
-.yellow-theme .section-title { color: #FFC107; }
-.yellow-theme .resource-list li::before { color: #FFC107; }
+.person .body {
+    width: 120px;
+    height: 120px;
+    background: #ff0000;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
 
-.purple-theme .card-visual { background-color: #7E57C2; }
-.purple-theme .section-title { color: #7E57C2; }
-.purple-theme .resource-list li::before { color: #7E57C2; }
+.laptop {
+    width: 120px;
+    height: 80px;
+    background: #222;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    transform: perspective(100px) rotateY(-20deg);
+}
 
-/* --- Responsiveness (রেসপন্সিভনেস) --- */
+/* Floating Icons */
+.icon {
+    position: absolute;
+    font-size: 2rem;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
+}
 
-/* ট্যাবলেট ভিউ (Tablet View) */
-@media (max-width: 992px) {
-    .course-card {
-        flex-direction: column;
+.heart { top: 10%; left: 10%; font-size: 3rem; background: #fff; padding: 10px; border-radius: 50% 50% 50% 0; border: 2px solid #ddd; }
+.megaphone { top: 0%; right: 20%; transform: rotate(-15deg); }
+.location { top: 25%; right: 5%; }
+.document { bottom: 40%; right: -5%; transform: rotate(15deg); }
+.plant { bottom: 10%; left: 0%; font-size: 4rem; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Footer Section */
+.footer {
+    position: absolute;
+    bottom: 40px;
+    z-index: 1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.logo-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: red;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: row;
+        padding: 0 40px;
     }
-    .card-visual, .card-body {
-        width: 100%;
-    }
-    .card-visual {
-        text-align: center;
-        padding: 30px;
-        min-height: auto;
-    }
-    .card-illustration img {
-        max-width: 250px;
-    }
-    .card-body {
-        gap: 30px;
+    .text-section h1 {
+        font-size: 4.5rem;
     }
 }
 
-/* মোবাইল ভিউ (Mobile View) */
+/* Mobile View */
 @media (max-width: 768px) {
-    .card-body {
-        grid-template-columns: 1fr; /* এক কলামে চলে আসবে */
-        padding: 30px;
-    }
-    .card-visual h2 {
-        font-size: 22px;
-    }
-    .learn-text {
-        font-size: 14px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
-body {
-    background-color: #f7f9fc;
-    padding: 40px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* মেইন কার্ড স্টাইল */
-.course-card {
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 35px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-/* বাম পাশের রঙিন অংশ */
-.card-visual {
-    width: 35%;
-    padding: 35px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-visual h2 {
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.3;
-}
-
-.illustration {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.illustration img {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-}
-
-/* ডান পাশের টেক্সট কন্টেন্ট */
-.card-body {
-    width: 65%;
-    display: flex;
-    padding: 45px;
-    gap: 40px;
-}
-
-.learn-info { flex: 1.2; }
-.resource-info { flex: 1; }
-
-h3 {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-}
-
-p {
-    color: #5a6772;
-    line-height: 1.7;
-    font-size: 15px;
-}
-
-/* রিসোর্স লিস্ট এবং আইকন */
-.resource-list { list-style: none; }
-
-.resource-list li {
-    font-size: 15px;
-    color: #374151;
-    margin-bottom: 12px;
-    padding-left: 18px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.resource-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    border-left: 6px solid currentColor;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-}
-
-.resource-list li:hover {
-    padding-left: 23px;
-    font-weight: 600;
-}
-
-/* থিম কালারসমূহ */
-.orange-theme .card-visual { background-color: #E95D4A; }
-.orange-theme h3 { color: #E95D4A; }
-.orange-theme .resource-list li::before { color: #E95D4A; }
-
-.teal-theme .card-visual { background-color: #00BFA5; }
-.teal-theme h3 { color: #00BFA5; }
-.teal-theme .resource-list li::before { color: #00BFA5; }
-
-/* --- Responsive (ট্যাব ও মোবাইল ভিউ) --- */
-
-@media (max-width: 992px) {
-    .course-card {
+    .content-wrapper {
         flex-direction: column;
-    }
-    .card-visual, .card-body {
-        width: 100%;
-    }
-    .card-visual {
         text-align: center;
-        padding: 30px;
+        justify-content: center;
+        margin-top: -50px;
     }
-    .illustration img {
-        max-width: 250px;
+    
+    .text-section h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+    .illustration-section {
+        height: 300px;
+        max-width: 320px;
+    }
+
+    .person {
+        width: 100px;
+        height: 150px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .footer {
+        bottom: 20px;
     }
 }
 
-@media (max-width: 650px) {
-    .card-body {
-        flex-direction: column;
-        padding: 30px;
-        gap: 30px;
-    }
-    .card-visual h2 {
-        font-size: 22px;
-    }
-}
+
+/* CSS Variables for colors */
+        :root {
+            --red-color: #e31e24;
+            --cyan-color: #00aeef;
+            --blue-color: #0071bc;
+            --navy-color: #1d3a5f;
+            --bg-gray: #f8f9fa;
+        }
+
+        .seo-marketing-container {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 60px 20px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .seo-marketing-container h2 {
+            font-size: clamp(24px, 5vw, 42px);
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        .infographic-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            gap: 20px;
+        }
+        
+        /* Columns */
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 35%;
+            z-index: 2;
+        }
+
+        /* Items / Pills */
+        .info-item {
+            display: flex;
+            align-items: center;
+            border-radius: 50px;
+            color: white;
+            padding: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .info-item .text {
+            flex: 1;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 5px 15px;
+            line-height: 1.2;
+        }
+
+        .info-item .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1.3rem;
+            border: 3px solid rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+                    /* Main box */
+            .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            }
+
+            /* Hover করলে পুরো box zoom */
+            .info-item:hover {
+            transform: scale(1.07);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            }
+
+            /* Text style */
+            .info-item .text {
+            transition: transform 0.3s ease;
+            }
+
+            /* Icon style */
+            .info-item .icon-box {
+            transition: transform 0.3s ease;
+            font-size: 22px;
+            }
+
+            /* Hover করলে ভিতরের text + icon zoom */
+            .info-item:hover .text {
+            transform: scale(1.05);
+            }
+
+            .info-item:hover .icon-box {
+            transform: scale(1.2);
+            }
+
+        /* Left Side Alignments */
+        .left-side .info-item { flex-direction: row; text-align: right; }
+        
+        /* Right Side Alignments */
+        .right-side .info-item { flex-direction: row-reverse; text-align: left; }
+
+        /* Colors */
+        .bg-red { background-color: var(--red-color); }
+        .bg-cyan { background-color: var(--cyan-color); }
+        .bg-blue { background-color: var(--blue-color); }
+        .bg-navy { background-color: var(--navy-color); }
+
+        /* Center SEO Hub */
+        .center-hub {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 15px solid #eee;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .center-hub:hover{
+              transform: scale(0.8);
+        }
 
 
+        .center-hub span {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
+        .center-hub .magnifier { font-size: 1.5rem; margin-top: -5px; }
 
+        /* Lines (Connecting Logic for Desktop) */
+        .line-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
+        /* --- Responsive Design --- */
 
+        /* Tablet View */
+        @media (max-width: 1024px) {
+            .infographic-wrapper {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .info-column { width: 85%; }
+            .center-hub { order: -1; margin-bottom: 20px; }
+            .left-side .info-item, .right-side .info-item {
+                flex-direction: row-reverse;
+                text-align: left;
+            }
+        }
+
+        /* Mobile View */
+        @media (max-width: 600px) {
+            .info-column { width: 100%; gap: 15px; }
+            .info-item .text { font-size: 0.85rem; }
+            .center-hub { width: 160px; height: 160px; border-width: 10px; }
+            .center-hub span { font-size: 2rem; }
+        }
 

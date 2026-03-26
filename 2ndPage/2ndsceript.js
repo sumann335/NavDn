@@ -1,69 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const listItems = document.querySelectorAll('.resource-list li');
+document.addEventListener("DOMContentLoaded", () => {
+    const text = document.querySelector('.text-section h1');
+    const illustration = document.querySelector('.illustration-container');
+    
+    // Add a simple fade-in effect on load
+    text.style.opacity = "0";
+    text.style.transform = "translateX(-50px)";
+    text.style.transition = "all 1s ease-out";
 
-    listItems.forEach(item => {
-        // লিস্টের কোনো আইটেমে ক্লিক করলে রেসপন্স করবে
-        item.addEventListener('click', function() {
-            const resourceName = this.innerText;
-            console.log("Navigating to: " + resourceName);
-            
-            // আপনি চাইলে এখানে লিঙ্ক ওপেন করার কোড দিতে পারেন
-            // window.location.href = "#"; 
-        });
+    illustration.style.opacity = "0";
+    illustration.style.transform = "scale(0.8)";
+    illustration.style.transition = "all 1s ease-out 0.3s";
 
-        // হোভার করলে সামান্য ইফেক্ট (CSS এর পাশাপাশি JS দিয়েও কন্ট্রোল করা যায়)
-        item.addEventListener('mouseenter', () => {
-            item.style.fontWeight = "600";
-        });
+    setTimeout(() => {
+        text.style.opacity = "1";
+        text.style.transform = "translateX(0)";
         
-        item.addEventListener('mouseleave', () => {
-            item.style.fontWeight = "400";
-        });
-    });
+        illustration.style.opacity = "1";
+        illustration.style.transform = "scale(1)";
+    }, 100);
 });
 
 
 
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const listItems = document.querySelectorAll('.resource-list li');
-
-    listItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // লিস্টের যেকোনো আইটেমে ক্লিক করলে এনিমেশন বা অন্য কাজ করা যাবে
-            const content = this.innerText;
-            console.log("Clicked on: " + content);
-            
-            // ক্লিক করলে হালকা একটা ব্লিংক ইফেক্ট
-            this.style.opacity = "0.5";
-            setTimeout(() => {
-                this.style.opacity = "1";
-            }, 150);
+// Simple entry animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.info-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 150 * index);
+            });
         });
-    });
-});
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // রিসোর্স লিস্টের আইটেমে ক্লিক করলে ইন্টারঅ্যাকশন
-    const listItems = document.querySelectorAll('.resource-links li');
-
-    listItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const resourceName = this.innerText;
-            console.log(`Opening Resource: ${resourceName}`);
-            
-            // ক্লিক ইফেক্ট
-            this.style.transition = '0.1s';
-            this.style.opacity = '0.5';
-            setTimeout(() => {
-                this.style.opacity = '1';
-            }, 100);
-        });
-    });
-});
